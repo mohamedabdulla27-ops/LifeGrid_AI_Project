@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-ink-950 text-mint font-sans;
+  }
+  ::selection {
+    background: rgba(0, 228, 114, 0.3);
+  }
+  /* Slim, dark scrollbars matching the mockup */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #1b2722 transparent;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1b2722;
+    border-radius: 9999px;
+  }
+}
+
+@layer components {
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(0, 228, 114, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 228, 114, 0.035) 1px, transparent 1px);
+    background-size: 36px 36px;
+  }
+  .panel {
+    @apply rounded-card border border-ink-600 bg-ink-800 shadow-card;
+  }
+  .label-caps {
+    @apply font-mono text-[11px] uppercase tracking-[0.16em] text-mint-dim;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-signal/60 disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .btn-primary {
+    @apply btn bg-gradient-to-r from-alert to-alert-soft text-white shadow-glow-red hover:opacity-80;
+  }
+  .btn-ghost {
+    @apply btn border border-ink-500 bg-ink-700 text-mint hover:opacity-80;
+  }
+  .btn-signal {
+    @apply btn bg-signal text-ink-950 hover:opacity-80;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium transition-all duration-200;
+  }
+}
